@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Search from './components/Search';
 import ShortList from './components/ShortList';
 import FilmeList from './components/FilmeList';
+import Header from './components/Header';
 /* ##### Componenta principala ##### */
 class App extends Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class App extends Component {
         return (
             <div>
                 <header>
+                    <Header/>
                     <Search
                         filterVal={this.state.filterText}
                         filterUpdate={this.filterUpdate.bind(this)}
