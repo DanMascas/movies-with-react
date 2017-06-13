@@ -4,9 +4,7 @@
 import React, {Component} from 'react';
 import Name from './Name';
 export default class ShortList extends Component {
-    render() {
-        const {favourites, data, deleteFavourite}=this.props;
-        const hasFavourites = (favourites.length > 0);
+    listaFavorite(favourites,data,deleteFavourite) {
         const favList = favourites.map((fav, i) => {
             return (
                 <Name
@@ -17,6 +15,11 @@ export default class ShortList extends Component {
                 />
             );
         });
+        return favList;
+    }
+    render() {
+        const {favourites, data, deleteFavourite}=this.props;
+        const hasFavourites = (favourites.length > 0);
         return (
             <div className="favourites">
                 <h4>
@@ -25,7 +28,7 @@ export default class ShortList extends Component {
                     }
                 </h4>
                 <ul>
-                    {favList}
+                    {this.listaFavorite(favourites,data,deleteFavourite)}
                 </ul>
                 {
                     hasFavourites && <hr/>

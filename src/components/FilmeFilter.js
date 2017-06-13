@@ -4,8 +4,7 @@
 import React, {Component} from 'react';
 import Name from './Name';
 export default class FilmeFilter extends Component {
-    render() {
-        const {data, filter, favourites, addFavourite}=this.props;
+    cautareFilme(data, filter, favourites, addFavourite){
         const input = filter.toLowerCase();
         const names = data.filter((film, i) => {
             return (
@@ -29,9 +28,13 @@ export default class FilmeFilter extends Component {
                 />
             );
         });
+        return names;
+    }
+    render() {
+        const {data, filter, favourites, addFavourite}=this.props;
         return (
             <ul>
-                {names}
+                {this.cautareFilme(data, filter, favourites, addFavourite)}
             </ul>
         )
     }
